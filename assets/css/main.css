@@ -78,7 +78,8 @@ html {
   box-sizing: inherit; }
 
 body {
-  background: #ffffff; }
+    background: #F5F2E5;
+}
   body.is-preload *, body.is-preload *:before, body.is-preload *:after, body.is-resizing *, body.is-resizing *:before, body.is-resizing *:after {
     -moz-animation: none !important;
     -webkit-animation: none !important;
@@ -1916,22 +1917,23 @@ button,
     padding-right: 2.75em; }
 
 #sidebar {
-  -moz-flex-grow: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-grow: 0;
-  flex-grow: 0;
-  -moz-flex-shrink: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-shrink: 0;
-  flex-shrink: 0;
-  -moz-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
-  -webkit-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
-  -ms-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
-  transition: margin-left 0.5s ease, box-shadow 0.5s ease;
-  background-color: #f5f6f7;
-  font-size: 0.9em;
-  position: relative;
-  width: 26em; }
+    -moz-flex-grow: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-grow: 0;
+    flex-grow: 0;
+    -moz-flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-shrink: 0;
+    flex-shrink: 0;
+    -moz-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
+    -webkit-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
+    -ms-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
+    transition: margin-left 0.5s ease, box-shadow 0.5s ease;
+    background-color: #98B0B3;
+    font-size: 0.9em;
+    position: relative;
+    width: 26em;
+}
   #sidebar h2 {
     font-size: 1.38889em; }
   #sidebar > .inner {
@@ -1949,11 +1951,12 @@ button,
         margin-bottom: 0;
         padding-bottom: 0; }
     #sidebar > .inner > .alt {
-      background-color: #eff1f2;
-      border-bottom: 0;
-      margin: -2.22222em 0 4.44444em -2.22222em;
-      padding: 2.22222em;
-      width: calc(100% + 4.44444em); }
+        background-color: #98B0B3;
+        border-bottom: 0;
+        margin: -2.22222em 0 4.44444em -2.22222em;
+        padding: 2.22222em;
+        width: calc(100% + 4.44444em);
+    }
   #sidebar .toggle {
     text-decoration: none;
     -moz-transition: left 0.5s ease;
