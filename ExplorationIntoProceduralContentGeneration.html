@@ -34,14 +34,15 @@
 
 									<center> <img class="image main"><img src="images/DungeonGenGif.gif" alt="" width="1000" align="middle" /></center>
 									<p>
-										My post graduate study was a continuation of my dissertation from my undergraduate dissertation. My undergrad dissertation was focusing on cyclic procedural content generation and its applications.
-										Researching this area I found there was limited papers on this topic, even more so less information about how to approach the technique. This lead my to using Joris Dormans' software called Ludoscope to explore the
-										capabilities of the technique due to the scope of the project.
+										My post graduate study was a continuation of my dissertation from my undergraduate, which focused on cyclic procedural content generation and its applications.
+										Researching cyclic pcg and the surrounding papers, I found there was limited papers on this topic. Especially about how to approach the technique. This lead my to using Joris Dormans' software called
+										Ludoscope to explore the capabilities of the technique due to the scope of the project.
 									</p>
 
 									<p>
-										Using the tool made me want to create my own within Unity, this would allow easier access to generate game levels in engine and allows me to modify the output, thus making it accessable. To achieve this,
-										the creation of the tool was broken down into three seperate research projects across my masters.
+										Since Ludoscope was a unreleased software, Dorman's did not have documentation which gave the software a steep learning curve. This made me want to create my own within Unity, to generate level data.
+										I decided to continue my research and development into my master's study, with a focus of recreating the graph rewriting system of the tool and use it to generate a dungeon suitable for the roguelike genre.
+										To achieve this, the creation of the tool was broken down into three seperate research projects across my masters.
 									</p>
 
 									<hr class="major" />
@@ -49,10 +50,12 @@
 									<h2>Project 1: Graph rewriting</h2>
 									<h4>Research</h4>
 									<p>
-										Researching around the tool and talks Dormans' gave about Ludoscope, I discovered Graph Rewriting and its usecase as a generative grammar. Due to my limited knowledge in generative grammars, I researched into other approaches
-										and thier applications to aide in my development decisions when creating the tool. Once an understanding was gained I explored the aproaches used in Graph grammar such as algorithmic node replacement, algebraic node replacement,
-										and negative applications conditions. This led into researching into how to apply Graph Rewriting for level designs, especially roguelikes, this led to generating missions and basing space off the missions.
+										The first project focused on creating a graph rewriting tool, which is the foundation of Dormans' Ludoscope tool, and its ability to be used as a generative grammar, more can be seen <a href="https://youtu.be/yxMY6hsAzf8?si=P4z8OuIq02UiGBC6">here.</a>
+										Due to my limited knowledge in generative grammars, I researched into other papers their applications of generative grammars to aide in my development decisions when creating the tool.
+										<br /> Once an understanding of the foundations for generative grammars was gained, I explored into graph grammar applications such as node replacement, algebraic node replacemnet, and negative application conditions.
+										This led into applying the graph grammar output to allow for level design choices, which Dormans' paper about generating missions and basing space of said missions.
 									</p>
+
 									<h4>Development</h4>
 									<p>Before creating the tool, I set out key requirements </p>
 									<li>Represent the string data as a graph</li>
@@ -60,76 +63,128 @@
 									<li>Ability to apply rules randomly if no specific node location specified</li>
 									<li>Ability to create a recipe of rules (linking rules together)</li>
 
-									<p>This tool was made in Unity, and made use of scriptable objects to store the rules and gizmos to represent the output of the graphs.</p>
 									<p>
-										To test the tool, I compared the output from Ludoscope to my tool's and used both in my undergraduate dissertaion, both were able to create similar outputs making the tool successful at implementing graph rewriting
-										to edit map data.
+										<br />
+										This tool was made in Unity, and made use of scriptable objects to store the rules and gizmos to represent the output of the graphs.<br />
+										To test the tool, my undergrad disseration was used. This takes a string input and then creates a representitive 3D envrionment. An output was taken from Ludoscope and my tool with both being able to create
+										similar outputs.
 									</p>
 
 									<h4>Tool breakdown</h4>
 									<iframe width="560" height="315" src="https://www.youtube.com/embed/Jk0vWgG83D4?si=CWAHpq_KwluIQOzB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-									<hr class="major" />
 
-									<h2>Project 2: Creating a physical envrionment</h2>
-									<p>
-										To follow on from the previous project, this project focused on using the graph data to create a physical environment. The main problem this project solved was appropiate methods of generating
-										physical space from the graph data string. While researching, three methods stood out that were applicable to the project's scope, Shape Grammar, Cellular Automata, and Pre-authored rooms. Each of the methods
-										have their own benefit, with shape grammar being able to create the space with the graph's missions in mind, it would be complex and less user friendly compared to CA and Pre-authored rooms which have
-										a high amount of research linked to them. This enables developers to pick up and use the tool without a high learning curve. With this in mind both CA and Pre-authored rooms was used to create a customisable space.
-									</p>
-									<h4>How the tool works</h4>
-									<p>The tool uses the variables set by the user to create the environment these are split across multiple aspects:</p>
-									<li>Being able to set general CA values to form cave-like structures (smooth iterations, fill percent, border sizes)</li>
-									<li>CA being limited to "rooms" with min/max range of sizes of said rooms</li>
-									<li>CA using definite dead/alive areas to control the random spread of the CA</li>
-									<li>Being able to assign a pre-authored room to a graph node</li>
 
-									<div class="posts">
-										<article>
-											<img class="image main"><img src="images/MainToolSS.png" alt="" width="500" />
-											<p>Tool settings</p>
-										</article>
-										<article>
-											<img class="image main"><img src="images/Pre-authoredRoomSS.png" alt="" width="500" />
-											<p>Pre-authored Room scriptable object linking prefabs with graph alphabet key</p>
-										</article>
-										<article>
-											<img class="image main"><img src="images/RHRuleSS.png" alt="" width="500" />
-											<p>Rule settings for Pre-authored Rooms abd if the area will be open space for CA (-1 = definite open/live )</p>
-										</article>
-									</div>
+									<h4>Research documentation</h4>
+									<html>
 
-									<hr class="major" />
-									<h2>Project 3: Entity spawning and difficulty curves</h2>
-									<p>
-										This project's focus was on filling the generated space with entities and applying an approximate difficulty rating based on the developer's settings. This was achieved through reseraching the different methods
-										other games use to spawn entities, I chose to implement Poisson Disk Sampling but it is an expensive option, so Jittered-grid was also added. This gives developers options on how they want entites to spawn.
-										Meanwhile difficulty curves are implemented using Unity's animation curve and assignig the value based on the node's depth in the dungeon which is obtained using a Breadth First Search algorithm. This was chosen
-										to avoid infinite looping in cyclic layouts. To add variety in the number so the dungeon does not have a simply curve, the developer can use Interval values to create "sawed"/Intervaled curves.
-									</p>
+									<head>
+										<title>PDF in HTML</title>
+									</head>
+									<body>
+										<object class="pdf"
+												data="https://WillBennett2.github.io/doc/GraphRewriting.pdf"
+												width="800"
+												height="500">
+										</object>
+									</body>
 
-									<div class="posts">
-										<article>
-											<img class="image main"><img src="images/EntityDiffCurveSS.png" alt="" width="500" height="100" />
-											<p>Difficulty curve and entity spawn method settings.</p>
-										</article>
-										<article>
-											<img class="image main"><img src="images/EntityDataLinked.png" alt="" width="500" />
-											<p>Difficulty modifier and Interval value linked to the node within the rules. Additionally Entity Data Scriptable Object being linked to Nodes via Stored Nodes. </p>
-										</article>
-										<article>
-											<img class="image main"><img src="images/EntityDataSOSS.png" alt="" width="550" height="400" />
-											<p>Entity Data Scriptable Object.</p>
-										</article>
-									</div>
+								</html>
 
-									<hr class="major" />
-									<h2>Github Link</h2>
-									<p>Link for the repo is <a href="https://github.com/WillBennett2/Graph-PCG-Tool" class="icon brands fa-github"><strong>here</strong></a></p>
+								<hr class="major" />
+								<h2>Project 2: Creating a physical envrionment</h2>
+								<p>
+									To follow on from the previous project, this project focused on using the graph data to create a physical environment. The main problem this project solved was appropiate methods of generating
+									physical space from the graph data string. While researching, three methods stood out that were applicable to the project's scope, Shape Grammar, Cellular Automata, and Pre-authored rooms. Each of the methods
+									have their own benefit, with shape grammar being able to create the space with the graph's missions in mind, it would be complex and less user friendly compared to CA and Pre-authored rooms which have
+									a high amount of research linked to them. This enables developers to pick up and use the tool without a high learning curve. With this in mind both CA and Pre-authored rooms was used to create a customisable space.
+								</p>
+								<h4>How the tool works</h4>
+								<p>The tool uses the variables set by the user to create the environment these are split across multiple aspects:</p>
+								<li>Being able to set general CA values to form cave-like structures (smooth iterations, fill percent, border sizes)</li>
+								<li>CA being limited to "rooms" with min/max range of sizes of said rooms</li>
+								<li>CA using definite dead/alive areas to control the random spread of the CA</li>
+								<li>Being able to assign a pre-authored room to a graph node</li>
 
-									<footer id="footer">
-										<p class="copyright">&copy;Will Bennett | Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-									</footer>
+								<div class="posts">
+									<article>
+										<img class="image main"><img src="images/MainToolSS.png" alt="" width="500" />
+										<p>Tool settings</p>
+									</article>
+									<article>
+										<img class="image main"><img src="images/Pre-authoredRoomSS.png" alt="" width="500" />
+										<p>Pre-authored Room scriptable object linking prefabs with graph alphabet key</p>
+									</article>
+									<article>
+										<img class="image main"><img src="images/RHRuleSS.png" alt="" width="500" />
+										<p>Rule settings for Pre-authored Rooms abd if the area will be open space for CA (-1 = definite open/live )</p>
+									</article>
+								</div>
+
+
+								<h4>Research documentation</h4>
+								<html>
+
+								<head>
+									<title>PDF in HTML</title>
+								</head>
+								<body>
+									<object class="pdf"
+											data="https://WillBennett2.github.io/doc/EntitySpawningReport.pdf"
+											width="800"
+											height="500">
+									</object>
+								</body>
+
+								</html>
+
+								<hr class="major" />
+								<h2>Project 3: Entity spawning and difficulty curves</h2>
+								<p>
+									This project's focus was on filling the generated space with entities and applying an approximate difficulty rating based on the developer's settings. This was achieved through reseraching the different methods
+									other games use to spawn entities, I chose to implement Poisson Disk Sampling but it is an expensive option, so Jittered-grid was also added. This gives developers options on how they want entites to spawn.
+									Meanwhile difficulty curves are implemented using Unity's animation curve and assignig the value based on the node's depth in the dungeon which is obtained using a Breadth First Search algorithm. This was chosen
+									to avoid infinite looping in cyclic layouts. To add variety in the number so the dungeon does not have a simply curve, the developer can use Interval values to create "sawed"/Intervaled curves.
+								</p>
+
+								<div class="posts">
+									<article>
+										<img class="image main"><img src="images/EntityDiffCurveSS.png" alt="" width="500" height="100" />
+										<p>Difficulty curve and entity spawn method settings.</p>
+									</article>
+									<article>
+										<img class="image main"><img src="images/EntityDataLinked.png" alt="" width="500" />
+										<p>Difficulty modifier and Interval value linked to the node within the rules. Additionally Entity Data Scriptable Object being linked to Nodes via Stored Nodes. </p>
+									</article>
+									<article>
+										<img class="image main"><img src="images/EntityDataSOSS.png" alt="" width="550" height="400" />
+										<p>Entity Data Scriptable Object.</p>
+									</article>
+								</div>
+
+
+								<h4>Research documentation</h4>
+								<html>
+
+								<head>
+									<title>PDF in HTML</title>
+								</head>
+								<body>
+									<object class="pdf"
+											data="https://WillBennett2.github.io/doc/CreatingPhysicalEnvrionmentReport.pdf"
+											width="800"
+											height="500">
+									</object>
+								</body>
+
+								</html>
+
+								<hr class="major" />
+								<h2>Github Link</h2>
+								<p>Link for the repo is <a href="https://github.com/WillBennett2/Graph-PCG-Tool" class="icon brands fa-github"><strong>here</strong></a></p>
+
+								<footer id="footer">
+									<p class="copyright">&copy;Will Bennett | Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
 								</section>
 
 						</div>
