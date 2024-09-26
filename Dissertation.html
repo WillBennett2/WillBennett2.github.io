@@ -32,7 +32,7 @@
 							<p>This post covers my masters dissertation</p>
 						</header>
 
-						<center><img src="images/LoopDeckShowcase.gif" alt="" width="800" height="400"/></center>
+						<center><img src="images/LoopDeckShowcase.gif" alt="" width="800" height="400" /></center>
 						<p>
 							This project was made in Unity with C#, with the level generation being done using the tool I created in my previous  <a href="ExplorationIntoProceduralContentGeneration.html">post graduate studies</a>.
 							The aim of this project was to create a game that focuses on the theoratical practices to increase player engagement, and applying that theory to using mechanics to increase player engagement. These mechanics
@@ -51,10 +51,15 @@
 
 						<hr class="major" />
 						<h2>Game Features</h2>
+						<p>
+							The game is about an overlord trying to take over a kingdom, to achieve this they must overtake dungeons and gain land while fighting off the kingdom's adventurer guilds. The player is able to 
+							defend their dungeon through the use of minions, while gearing up to fight the kingdom's strongest adventurer party.
+						</p>
+
 						<div class="posts">
 							<article>
 								<h3>Card Placing</h3>
-								<img src="images/PlacingCards.gif" alt=""  width="400"/>
+								<img src="images/PlacingCards.gif" alt="" width="400" />
 								<p>
 									Half of the interactions in this game comes from the cards, placing cards can change which minions spawn on the board, give combat special effects, or apply permanent buffs.
 									Downside of this is after a certain number of cards is placed, the boss will spawn. The player will have to balance defence and being prepared.
@@ -63,41 +68,43 @@
 
 							<article>
 								<h3>Gaining Cards</h3>
-								<img src="images/pic01.jpg" alt="" />
+								<img src="images/GainingCards.gif" alt="" width="400" />
 								<p>The player gains cards from killing adventurers or from their minions dying, these are dropped based off a loot table that is generated from the deck that the player creates.</p>
 							</article>
 
 							<article>
 								<h3>Card Data</h3>
-								<img src="images/pic01.jpg" alt="" />
-								<p>Cards are created through scriptable objects. TALK MORE</p>
+								<img src="images/CardData.png" alt="" />
+								<p>Cards are apart of the core gameplay, with them being stored as scriptable objects and sorted into the deck for the player to interact with.
+								The player can use these cards to defend their dungeon by increasing their minion's stats, or turning the tide of battle in their favour with strategic placements.</p>
 							</article>
 
 							<article>
 								<h3>Combat</h3>
-								<img src="images/CombatShowcase.gif" alt="" width="400"/>
-								<p>Combat is initated by entering a tile that occupies an enemy. The combat occurs in an autobattler style. TALK MORE</p>
+								<img src="images/CombatShowcase.gif" alt="" width="400" />
+								<p>Combat is initated by entering a tile that occupies an enemy. The combat occurs in an autobattler style, with the surrounding tiles having an impact on the combat conditions.</p>
 							</article>
 
 							<article>
 								<h3>Adventurers</h3>
-								<img src="images/pic01.jpg" alt="" />
+								<img src="images/AdventurerData.png" alt="" width="500" />
 								<p>
 									Adventurers act as the enemies of the game, they will make their way around the dungeon fighting your minions to defeat you. If the number of cards placed to spawn the boss
-									then an adventurer party will spawn, if defeated the player will win the level.
+									then an adventurer party will spawn, if defeated the player will win the level. The longer the player takes the harder the adventurer's get so the player must prepare fast!
 								</p>
 							</article>
 
 							<article>
 								<h3>Equipment</h3>
-								<img src="images/EquipmentDissertation.gif" alt="" width="400"/>
-								<p>Equipment allows for players to increase their characters stats, and prepare for the boss. This also gives a sense of progression via powering up.</p>
+								<img src="images/EquipmentDissertation.gif" alt="" width="400" />
+								<p>Equipment allows for players to increase their characters stats, and prepare for the boss. This also gives a sense of progression via powering up, with harder
+								adventurers dropping highier tier loot.</p>
 							</article>
 
 							<article>
 								<h3>Boss Fight</h3>
-								<img src="images/Bossfight.gif" alt="" width="400"/>
-								<p>Equipment allows for players to increase their characters stats, and prepare for the boss. This also gives a sense of progression via powering up.</p>
+								<img src="images/Bossfight.gif" alt="" width="400" />
+								<p>Once the player's dungeon has reached enough attention a adventurer party will attack the dungeon.</p>
 							</article>
 						</div>
 
@@ -140,6 +147,13 @@
 						</object>
 					</body>
 					</html>
+
+					<hr class="major" />
+					<h2>Github Link</h2>
+					<p>Link for the repo is <a href="https://github.com/WillBennett2/LoopDeck" class="icon brands fa-github"><strong>here</strong></a></p>
+					<footer id="footer">
+						<p class="copyright">&copy;Will Bennett | Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
 					</section>
 
 				</div>
